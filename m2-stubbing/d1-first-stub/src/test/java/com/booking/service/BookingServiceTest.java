@@ -26,8 +26,8 @@ public class BookingServiceTest {
     @Before
     public void setUp() {
 
+        //1) make a request to wiremock host, not to real one
         final String baseUrl = String.format("http://localhost:%s", wireMockRule.port());
-
         bookingService = new BookingService(
                 new PayBuddyGateway(baseUrl)
         );
@@ -35,7 +35,7 @@ public class BookingServiceTest {
 
     @Test
     public void shouldPayForBookingSuccessfully() {
-        // Given
+        // Given  2) mock response
         stubFor(any(anyUrl()).willReturn(okJson("" +
                 "{" +
                 "  \"paymentId\": \"2222\"," +
@@ -50,7 +50,7 @@ public class BookingServiceTest {
                         new CreditCard("1234-1234-1234-1234",
                                 LocalDate.of(2018, 2, 1))));
 
-        // Then
+        // Then 3) assert result
         assertThat(bookingResponse)
                 .isEqualTo(new BookingResponse("1111", "2222", COMPLETE));
     }
