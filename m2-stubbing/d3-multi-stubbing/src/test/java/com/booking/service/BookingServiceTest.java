@@ -48,7 +48,7 @@ public class BookingServiceTest {
                         "}")));
 
         // When
-        final BookingResponse bookingResponse = bookingService.payForBooking(
+        final BookingResponse bookingResponse = bookingService.payForBooking( //this service call 2 3rd parties APIs
                 new BookingPayment(
                         "1111",
                         new BigDecimal("20.55"),
