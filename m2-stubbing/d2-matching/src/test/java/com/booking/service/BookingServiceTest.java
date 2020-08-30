@@ -28,7 +28,7 @@ public class BookingServiceTest {
 
     @Test
     public void shouldSucceedToPayForBooking() {
-        // Given
+        // Given  2) mock requesting (matching) and response
         stubFor(post(urlPathEqualTo("/payments"))
                 .withRequestBody(equalToJson("{" +
                         "  \"creditCardNumber\": \"1234-1234-1234-1234\"," +
