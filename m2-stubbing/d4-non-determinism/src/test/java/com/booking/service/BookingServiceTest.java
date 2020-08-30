@@ -88,13 +88,14 @@ public class BookingServiceTest {
                 )
                 .withRequestBody(
                         matchingJsonPath("paymentId")
+                        //UUID wasn't added because it is random
                 )
                 .willReturn(
                         okJson("{" +
                                 "  \"paymentResponseStatus\": \"SUCCESS\"" +
                                 "}")));
 
-        stubFor(get(urlPathMatching("/blacklisted-cards/.*"))
+        stubFor(get(urlPathMatching("/blacklisted-cards/.*"))  //using regex
                 .willReturn(okJson("{" +
                         "  \"blacklisted\": \"false\"" +
                         "}")));
