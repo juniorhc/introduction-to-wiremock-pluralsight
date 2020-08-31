@@ -50,6 +50,7 @@ public class BookingServiceTest {
                         new CreditCard("2222-2222-2222-2222",
                                 LocalDate.of(2222, 2, 2))));
 
+        //Journal sometimes it can be the only way to help out to find bugs - helps to debug
         final List<ServeEvent> allServeEvents = WireMock.getAllServeEvents();
     }
 }

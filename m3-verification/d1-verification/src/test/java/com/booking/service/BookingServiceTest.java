@@ -48,7 +48,7 @@ public class BookingServiceTest {
         // Then
         assertThat(bookingResponse).isEqualTo(new BookingResponse(COMPLETE));
 
-        verify(postRequestedFor(urlPathEqualTo("/payments"))
+        verify(postRequestedFor(urlPathEqualTo("/payments")) //Basically is ask if the call was made or not.
                 .withRequestBody(equalToJson("{" +
                         "  \"creditCardNumber\": \"1234-1234-1234-1234\"," +
                         "  \"creditCardExpiry\": \"2018-02-01\"," +

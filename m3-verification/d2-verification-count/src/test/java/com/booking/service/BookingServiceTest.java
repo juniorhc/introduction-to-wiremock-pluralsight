@@ -48,6 +48,7 @@ public class BookingServiceTest {
         // Then
         assertThat(bookingResponse).isEqualTo(new BookingResponse(COMPLETE));
 
+                //verification count: make sure the /payments call was made just once
         verify(1, postRequestedFor(urlPathMatching("/payments"))
                 .withRequestBody(equalToJson("{" +
                         "  \"creditCardNumber\": \"1234-1234-1234-1234\"," +
