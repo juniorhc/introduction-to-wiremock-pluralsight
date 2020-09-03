@@ -56,7 +56,7 @@ public class BookingServiceTest {
         stubFor(get(
                 urlPathEqualTo("/vat"))
                 .withQueryParam("amount", equalTo("100"))
-                .willReturn(serverError()));
+                .willReturn(serverError())); //type of wiremock error, in order do prevent future errors
 
         // When
         final Invoice invoice = bookingService.generateInvoice(
@@ -79,7 +79,7 @@ public class BookingServiceTest {
         stubFor(get(
                 urlPathEqualTo("/vat"))
                 .withQueryParam("amount", equalTo("100"))
-                .willReturn(aResponse().withFault(Fault.EMPTY_RESPONSE)));
+                .willReturn(aResponse().withFault(Fault.EMPTY_RESPONSE))); //type of wiremock error, in order do prevent future errors
 
         // When
         final Invoice invoice = bookingService.generateInvoice(
@@ -102,7 +102,7 @@ public class BookingServiceTest {
         stubFor(get(
                 urlPathEqualTo("/vat"))
                 .withQueryParam("amount", equalTo("100"))
-                .willReturn(aResponse().withFault(Fault.RANDOM_DATA_THEN_CLOSE)));
+                .willReturn(aResponse().withFault(Fault.RANDOM_DATA_THEN_CLOSE))); //type of wiremock error, in order do prevent future errors
 
         // When
         final Invoice invoice = bookingService.generateInvoice(
@@ -125,7 +125,7 @@ public class BookingServiceTest {
         stubFor(get(
                 urlPathEqualTo("/vat"))
                 .withQueryParam("amount", equalTo("100"))
-                .willReturn(aResponse().withFault(Fault.CONNECTION_RESET_BY_PEER)));
+                .willReturn(aResponse().withFault(Fault.CONNECTION_RESET_BY_PEER))); //type of wiremock error, in order do prevent future errors
 
         // When
         final Invoice invoice = bookingService.generateInvoice(
