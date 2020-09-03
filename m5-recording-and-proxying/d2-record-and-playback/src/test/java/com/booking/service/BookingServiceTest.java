@@ -23,7 +23,8 @@ public class BookingServiceTest {
 
     @Before
     public void setUp() {
-        bookingService = new BookingService(new PayBuddyGateway("localhost", 8080));
+        bookingService = new BookingService(
+                new PayBuddyGateway("localhost", 8080));
     }
 
 //    @Before
